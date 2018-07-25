@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <label>タスク：<input type="text" v-model='task' @keyup.enter=addTodo()></label>
+        <p>タスク一覧</p>
+        <li v-for="(todo, index) in todos">
+            <input type="checkbox" @change='isDone(todo.done=!todo.done)'>
+            <del v-if="todo.done">{{ todo.task }}</del>
+            <span v-else>{{ todo.task }}</span>
+            <input type="button" value="削除" @click='removeTodo(index)'>
+        </li>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                task:'',
+                todos:[]
+            },
+            methods:{
+                addTodo:function(){
+                    if(this.task=='') return
+                    this.todos.push({
+                        task:this.task,
+                        done:false
+                    })
+                    this.task=''
+                },
+                removeTodo:function(index){
+                    this.todos.splice(index, 1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

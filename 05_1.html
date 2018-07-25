@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <label>苗字:<input type="text" @input='onInputF($event)' :value='firstName'></label>
+        <label>名前:<input type="text" @input='onInputL($event)' :value='lastName'></label>
+        <p>FullName:{{ fullName }}</p>
+    </div>
+
+    <script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            firstName:'',
+            lastName:'',
+            fullName:''
+        },
+        methods:{
+            onInputF:function(event){
+                this.firstName=event.target.value
+                this.fullName=this.firstName+' '+this.lastName
+            },
+            onInputL:function(event){
+                this.lastName=event.target.value
+                this.fullName=this.firstName+' '+this.lastName
+            }
+        }
+    })
+    </script>
+</body>
+</html>
