@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <!--*************************************
+    ・ディレクティブを使ったテキストレンダリング
+    　→{{message}}以外の方法でmessageを表示すること。
+
+    ・ディレクティブを使ったイベントハンドリング
+    　→onclickみたいなイベント書くこと。
+    
+    ・ディレクティブを使ったデータバインディング
+    　→pタグで表示したものをinputの中にも表示させること。
+    **************************************-->
+    
+    <div id="app">
+        <p v-text="message"></p>
+        <input type="text" :value=message @input="changeText($event)">
+    </div>
+
+    <script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:''
+        },
+        methods:{
+            changeText:function(event){
+                this.message=event.target.value
+            }
+        }
+    })
+    </script>
+</body>
+</html>

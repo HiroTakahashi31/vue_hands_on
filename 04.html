@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <!--*************************************
+    ・フォーム入力の双方向データバインディング
+    　→前にやったことを一人で全部やってくれるディレクティブがあるらしい
+    **************************************-->
+    
+    <div id="app">
+        <p v-text="message"></p>
+        <input v-model="message">
+    </div>
+
+    <script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:''
+        },
+    })
+    </script>
+</body>
+</html>

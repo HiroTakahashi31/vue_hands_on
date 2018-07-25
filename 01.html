@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <!--*************************************
+    ・Vue.jsを使ったアプリケーションの基本
+    　→知識なので、頑張る
+    
+    ・テンプレートによるレンダリング
+    　→テンプレート構文がどんなのかわかればおｋ
+    　 大体は↓のところ
+    　 https://jp.vuejs.org/v2/guide/index.html#%E5%AE%A3%E8%A8%80%E7%9A%84%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0
+    **************************************-->
+    
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'Hello World'
+        }
+    })
+    </script>
+</body>
+</html>
